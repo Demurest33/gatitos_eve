@@ -1,0 +1,50 @@
+---
+---
+
+
+<script>
+    setInterval(function(){
+        const startTime = new Date('2024-07-03T10:00:00');
+        const time = (new Date).toTimeString().split(":");
+        const now = new Date();
+        const diff = Number(now) - Number(startTime);
+
+        const passedDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const passedHrs = parseInt(time[0]) - startTime.getHours();
+        const passedMins = parseInt(time[1]) - startTime.getMinutes();
+        const passedSecs = parseInt(time[2].split(" ")[0]) - startTime.getSeconds();
+        //lo quiere en formato de 24hrs
+        (document.getElementById("dias") as HTMLInputElement).value = passedDays.toString();
+        (document.getElementById("horas") as HTMLInputElement).value = passedHrs.toString();
+        (document.getElementById("minutos") as HTMLInputElement).value = passedMins.toString();
+        (document.getElementById("segundos") as HTMLInputElement).value = passedSecs.toString();
+    }, 1000);
+</script>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow">
+
+    <div class="stat max-w-44">
+        <div class="stat-value"><input class="bg-base-100 max-w-20" type="text" id="dias" readonly="readonly" value="00"></div>
+        <div class="stat-title">Días</div>
+      </div>
+
+
+    <div class="stat max-w-44">
+      <div class="stat-value"><input class="bg-base-100 max-w-20" type="text" id="horas" readonly="readonly" value="00"></div>
+      <div class="stat-title">Horas</div>
+    </div>
+    
+</div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow">
+  
+    <div class="stat max-w-44">
+      <div class="stat-value"><input class="bg-base-100 max-w-20" type="text" id="minutos" readonly="readonly" value="00"></div>
+      <div class="stat-title">Minutos</div>
+    </div>
+  
+    <div class="stat max-w-44">
+      <div class="stat-value"><input class="bg-base-100 max-w-20" type="text" id="segundos" readonly="readonly" value="00"></div>
+      <div class="stat-title">Segundos</div>
+    </div>
+</div>
