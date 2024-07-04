@@ -4,15 +4,16 @@
 
 <script>
     setInterval(function(){
-        const startTime = new Date('2024-07-03T10:00:00');
-        const time = (new Date).toTimeString().split(":");
-        const now = new Date();
-        const diff = Number(now) - Number(startTime);
+        const dateValue = Number((new Date("2024-07-03 09:00:00").getTime())) / 1000;
+        const date = Math.abs(dateValue).toFixed(0);
+        const currentDate = Math.abs((new Date()).getTime() / 1000).toFixed(0);
 
-        const passedDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const passedHrs = parseInt(time[0]) - startTime.getHours();
-        const passedMins = parseInt(time[1]) - startTime.getMinutes();
-        const passedSecs = parseInt(time[2].split(" ")[0]) - startTime.getSeconds();
+        const diff = Number(currentDate) - Number(date);
+
+        const passedDays = Math.floor(diff / 86400);
+        const passedHrs = Math.floor((diff / 3600) % 24);
+        const passedMins = Math.floor((diff / 60) % 60);
+        const passedSecs = diff % 60;
         //lo quiere en formato de 24hrs
         (document.getElementById("dias") as HTMLInputElement).value = passedDays.toString();
         (document.getElementById("horas") as HTMLInputElement).value = passedHrs.toString();
