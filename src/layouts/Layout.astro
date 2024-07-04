@@ -7,45 +7,65 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="cupcake">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Gatitos en adopción" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<!-- make navbar sticky -->
+		<div class="navbar bg-base-200">
+			<div class="navbar-start">
+			  <div class="dropdown">
+				<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+				  <svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor">
+					<path
+					  stroke-linecap="round"
+					  stroke-linejoin="round"
+					  stroke-width="2"
+					  d="M4 6h16M4 12h8m-8 6h16" />
+				  </svg>
+				</div>
+				<ul
+				  tabindex="0"
+				  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+				  <li><a href="/">Inicio</a></li>
+				  <li><a href="/Historia">Historia</a></li>
+				</ul>
+			  </div>
+			  <a class="btn btn-ghost text-xl">Nodriza</a>
+			</div>
+			<div class="navbar-center hidden lg:flex">
+			  <ul class="menu menu-horizontal px-1">
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/Historia">Historia</a></li>
+			  </ul>
+			</div>
+			<div class="navbar-end">
+				<!-- Open the modal using ID.showModal() method -->
+				<button class="btn bg-accent hover:bg-secondary" onclick="my_modal_1.showModal()">Los quiero!</button>
+				<dialog id="my_modal_1" class="modal">
+				<div class="modal-box">
+					<h3 class="text-lg font-bold">Gracias por darnos un hogar</h3>
+					<p class="py-4">Comunicate con Evelyn y estaremos juntos en poco tiempo!</p>
+					<div class="modal-action">
+					<form method="dialog">
+						<!-- if there is a button in form, it will close the modal -->
+						<button class="btn">Close</button>
+					</form>
+					</div>
+				</div>
+				</dialog>
+			</div>
+		  </div>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
