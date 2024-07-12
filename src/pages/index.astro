@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Banner from '../components/Banner.astro';
 import { Icon } from 'astro-icon/components';
 import AcordeonHorizontal from '../components/AcordeonHorizontal.astro';
+import BtnAdoptar from '../components/BtnAdoptar.astro';
 ---
 
 <Layout title="Gatitos en adopción">
@@ -37,3 +38,17 @@ import AcordeonHorizontal from '../components/AcordeonHorizontal.astro';
         bg_img : 'gatitosHorizontal.jpg'
     }
 ]} />
+
+<div
+  class="hero min-h-screen bg-eve">
+  <div class="hero-overlay bg-opacity-0"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-lg">
+      <h1 class="mb-5 text-5xl font-bold">Nancy Evelyn</h1>
+      <p class="mb-5">
+        Nos encontró en la calle, nos cuidó y nos alimentó. Hizo todo lo posible por darnos una vida digna y un nuevo hogar.
+      </p>
+      <BtnAdoptar />
+    </div>
+  </div>
+</div>
