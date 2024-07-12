@@ -1,8 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Banner from '../components/Banner.astro';
+import { Icon } from 'astro-icon/components';
+import AcordeonHorizontal from '../components/AcordeonHorizontal.astro';
 ---
 
 <Layout title="Gatitos en adopción">
 
 <Banner />
+
+<AcordeonHorizontal items={[
+    {
+        title: 'MICHI1',
+        subtitle: 'Adoptado el 12/07/24 por la familia Pérez. Facelleció el 15/07/24 por sus heridas.', 
+        icon: 'wea',
+        color: '#FF0000',
+        bg_img : 'gatitosHorizontal.jpg'
+    },
+    {
+        title: 'MICHI2',
+        subtitle: 'Adoptado el 12/07/24 por la familia Pérez. Facelleció el 15/07/24 por sus heridas.',
+        icon: 'wea',
+        color: '#FF0000',
+        bg_img : 'gatitosHorizontal.jpg'
+    },
+    {
+        title: 'MICHI3',
+        subtitle: 'Adoptado el 12/07/24 por la familia Pérez. Facelleció el 15/07/24 por sus heridas.',
+        icon: 'wea',
+        color: '#FF0000',
+        bg_img : 'gatitosHorizontal.jpg'
+    }
+]} />
